@@ -1,0 +1,68 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project: Ala Katha – Static Event Website
+# Context / Goal
+You are looking at a single-page, fully static site that promotes the “Ala Katha” live concert happening on 19 July 2025 at the Musaeus College Auditorium, Colombo.  
+The page must remain framework-free (pure HTML + CSS + vanilla JS) while leveraging CDNs for Bootstrap 5, Google Fonts and optional lightweight JS libraries only when they add clear value.
+
+# Design System
+• Primary (#F4A529)  – vibrant saffron used for heroes & call-to-action highlights  
+• Secondary (#C86414) – warm burnt-orange for headings, footer & buttons  
+• Accent (#FFCF53)  – pale ticket yellow for dashed borders & decorative elements  
+• Light (#FFF7E6)    – site background / ticket punch-hole fill  
+• Text-Dark (#2B2B2B) – default copy color  
+
+Fonts  
+• Noto Sans Sinhala (400/700) for Sinhala titles & brand text  
+• Poppins (400/600/700) for English copy
+
+# Current Structure
+.
+├── index.html   ← single entry point (built & working)  
+└── /assets/     ← poster JPEG + optional icons
+
+Key Sections inside `index.html`
+1. **Hero**     – full-height banner with poster background, event title & countdown  
+2. **About**    – concise event overview (date, venue, director, compere)  
+3. **Artists**  – responsive grid of performer names  
+4. **Tickets**  – interactive ticket “stubs” (prices 3000 / 3500 / 4000 / 5500 / 7500 LKR) linking to  
+          `https://www.ticketsministry.com/concerts/aala-katha/6809e698cb16d`  
+5. **Contact**  – organiser phone numbers  
+6. **Footer**   – © 2025 Chathra Events
+
+JS utilities
+* **Countdown timer** (updates every second)
+* **Smooth-scroll polyfill** for old browsers
+* **Ticket-card generator** – price list rendered dynamically from an array
+
+# Coding Guidelines
+1. _No_ build tools – everything must stay runnable by simply opening `index.html` in a browser.  
+2. Keep all new JS under **50 KB** minified; favour CDNs to avoid repo bloat.  
+3. Maintain WCAG AA contrast ratios when tweaking colours.  
+4. Prefer utility classes from Bootstrap; fall back to custom CSS only when Bootstrap cannot style the requirement.  
+5. Any images >500 KB should be compressed (JPG 85 % or WebP).  
+6. Preserve Sinhala copy; do **not** auto-translate event slogans.
+
+# Immediate TODOs
+- [ ] Replace hero poster with an optimized 1920 × 1080 WebP version.  
+- [ ] Add `og:*` meta tags and a favicon for richer link previews.  
+- [ ] Incorporate an optional “Location Map” embed (Google Maps static iframe) under the Contact section, but lazy-load it for performance.  
+- [ ] Implement a basic scroll-triggered fade-in animation for each section (use IntersectionObserver, no heavy libraries).  
+- [ ] Create a tiny `README.md` with deployment instructions (GitHub Pages / Netlify).
+
+# Stretch Ideas
+* Add a small “Sponsors” carousel if assets become available.  
+* Offer a language-toggle (Sinhala / English) using simple `data-i18n` attributes and a JSON dictionary.  
+* Include basic analytics via Plausible .io (no cookies).
+
+# Done Definition
+The site should pass:
+✔ W3C validator (no critical errors)  
+✔ Google Lighthouse ≥ 90 (Performance, Accessibility, Best-Practices, SEO)  
+✔ Visual test on mobile (≤ 375 px) and desktop (≥ 1440 px)
+
+---  
+_Stick to these rules while extending or refactoring. Ask for clarifications before introducing new libraries or non-static resources._

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ආල කතා | Ala Katha Live in Concert</title>
+
+  <!-- Google Fonts & Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* --------------------------------------------------
+       FONT FACE DECLARATIONS
+    -------------------------------------------------- */
+    @font-face {
+      font-family: 'Kekobrush';
+      src: url('assets/kekoBrush.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'CCWelikala';
+      src: url('assets/CCWelikala.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* --------------------------------------------------
+       COLOUR PALETTE (sampled from poster)
+    -------------------------------------------------- */
+    :root {
+      --primary:   #F4A529;  /* vibrant saffron */
+      --secondary: #C86414;  /* warm burnt‑orange */
+      --accent:    #FFCF53;  /* ticket yellow */
+      --light:     #FFF7E6;  /* soft beige background */
+      --text-dark: #2B2B2B;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    .navbar { background: var(--primary) !important; }
+    .navbar-brand { font-family: 'Kekobrush', sans-serif; color:#fff !important; font-weight:600; }
+    .nav-link { font-family: 'Poppins', sans-serif; color:#fff !important; font-weight:600; }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      background: linear-gradient(120deg, #C86414 0%, #F4A529 50%, #FFCF53 100%);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -10%;
+      width: 120%;
+      height: 70%;
+      background: radial-gradient(circle at 60% 40%, #FFD580 0%, #F4A529 60%, transparent 100%);
+      opacity: 0.7;
+      z-index: 0;
+      border-radius: 0 0 60% 60% / 0 0 100% 100%;
+      transform: rotate(-4deg);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.18);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1,
+    .hero .lead,
+    .hero .sinhala-text {
+      text-shadow:
+        0 2px 12px rgba(44, 24, 1, 0.45), /* strong dark shadow for contrast */
+        0 0 8px rgba(255, 207, 83, 0.25);   /* subtle golden glow */
+    }
+    .hero h1{
+      font-family:'Kekobrush',sans-serif;
+      font-size:5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+    .hero .lead {
+      font-size: 1.5rem;
+    }
+    .sinhala-text {
+      font-family: 'CCWelikala', sans-serif;
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .hero .lead br:first-of-type + text {
+      font-family: 'Kekobrush', sans-serif;
+    }
+
+    /* ---------- SECTION HEADINGS ---------- */
+    .section-heading{color:var(--secondary);font-weight:700;margin-bottom:1rem;}
+
+    /* ---------- TICKETS ---------- */
+    .ticket-link{text-decoration:none;}
+    .ticket-card{
+      position:relative;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+      background:#FFFBE9;border:2px dashed var(--accent);border-radius:14px;padding:1.25rem 1rem;
+      transition:transform .3s,box-shadow .3s;cursor:pointer;
+    }
+    .ticket-card:hover{transform:translateY(-9px) rotate(-1.5deg);box-shadow:0 14px 20px rgba(0,0,0,.15);}   
+    .ticket-card .price{font-size:1.4rem;font-weight:700;color:var(--secondary);} 
+    .ticket-card .buy{background:var(--primary);color:#fff;padding:.25rem .9rem;border-radius:20px;font-size:.85rem;font-weight:600;}
+    /* perforation */
+    .ticket-card::before,.ticket-card::after{
+      content:"";position:absolute;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--light);
+      box-shadow:0 0 0 2px var(--accent);
+    }
+    .ticket-card::before{left:-9px;} .ticket-card::after{right:-9px;}
+
+    /* ---------- BUTTON ---------- */
+    .btn-primary-custom{background:var(--secondary);border:none;color:#fff;font-weight:600;}
+    .btn-primary-custom:hover{background:#a44f10;}
+
+    /* ---------- COUNTDOWN ---------- */
+    .countdown{font-size:1.25rem;font-weight:600;}
+
+    /* ---------- FOOTER ---------- */
+    footer{background:var(--secondary);color:#fff;padding:1.5rem 0;}
+
+    /* ---------- ARTISTS ---------- */
+    .artist-title {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+      color: var(--secondary);
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .title-decoration {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    .artist-card {
+      padding: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .artist-card:hover {
+      transform: translateY(-5px);
+    }
+    .artist-image {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .artist-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .artist-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(244, 165, 41, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .artist-card:hover .artist-overlay {
+      opacity: 1;
+    }
+    .artist-card:hover img {
+      transform: scale(1.1);
+    }
+    .artist-info {
+      text-align: center;
+      color: white;
+      padding: 10px;
+    }
+    .artist-info h6 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .artist-info p {
+      margin: 5px 0 0;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+    .artist-card h5 {
+      font-size: 1rem;
+      margin-top: 1rem;
+      color: var(--text-dark);
+      transition: color 0.3s ease;
+    }
+    .artist-card:hover h5 {
+      color: var(--secondary);
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#home">wd, l;d</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#artists">Artists</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tickets">Tickets</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="container">
+      <h1 class="mb-3">wd, l;d</h1>
+      <p class="lead mb-4"><span class="sinhala-text">l;djla ,shkakg wd,fhka</span><br>Experience a spell‑binding night of live music</p>
+      <div id="countdown" class="countdown mb-4"></div>
+      <a href="#tickets" class="btn btn-primary-custom btn-lg">Get Your Tickets</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="section-heading text-center mb-4">About the Event</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card border-0 shadow-sm" style="background: #FFFBE9;">
+            <div class="card-body p-4">
+              <div class="text-center mb-4">
+                <h3 class="sinhala-text mb-3">l;djla ,shkakg wd,fhka</h3>
+                <p class="lead mb-0">A Night of Musical Magic</p>
+              </div>
+              <div class="event-details">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="fas fa-calendar-alt me-2" style="color: var(--secondary);"></i>
+                  <p class="mb-0"><strong>Date:</strong> 19<sup>th</sup> July 2025</p>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                  <i class="fas fa-clock me-2" style="color: var(--secondary);"></i>
+                  <p class="mb-0"><strong>Time:</strong> 7:00 PM onwards</p>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                  <i class="fas fa-map-marker-alt me-2" style="color: var(--secondary);"></i>
+                  <p class="mb-0"><strong>Venue:</strong> Musaeus College Auditorium, Colombo</p>
+                </div>
+              </div>
+              <hr class="my-4" style="border-color: var(--accent);">
+              <p class="mb-0">
+                Prepare yourself for an extraordinary musical journey as <strong>Chathra Events</strong> in collaboration with <strong>Backbeat Sessions</strong> presents <em>Ala Katha</em>—a groundbreaking live concert experience. Under the masterful musical direction of <strong>Nipuna Jayakody</strong> and the charismatic hosting of <strong>Chamod Nuwaragedara</strong>, witness Sri Lanka's most talented artists reimagine beloved tracks with fresh, innovative arrangements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTISTS -->
+  <section id="artists" class="py-5" style="background:#FFF2D5;">
+    <div class="container">
+      <h2 class="section-heading text-center mb-4">
+        <span class="artist-title">Artist Line‑Up</span>
+        <div class="title-decoration"></div>
+      </h2>
+      <div class="row text-center g-4">
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="artist-card">
+            <div class="artist-image">
+              <img src="assets/artists/1.jpg" alt="Gajindu Fonseka" class="img-fluid rounded-circle">
+              <div class="artist-overlay">
+                <div class="artist-info">
+                  <h6>Gajindu Fonseka</h6>
+                  <p>Vocalist</p>
+                </div>
+              </div>
+            </div>
+            <h5 class="mt-3">Gajindu Fonseka</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="artist-card">
+            <div class="artist-image">
+              <img src="assets/artists/2.jpg" alt="Gangadara" class="img-fluid rounded-circle">
+              <div class="artist-overlay">
+                <div class="artist-info">
+                  <h6>Gangadara</h6>
+                  <p>Vocalist</p>
+                </div>
+              </div>
+            </div>
+            <h5 class="mt-3">Gangadara</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="artist-card">
+            <div class="artist-image">
+              <img src="assets/artists/4.jpg" alt="Ridma Weerawardhana" class="img-fluid rounded-circle">
+              <div class="artist-overlay">
+                <div class="artist-info">
+                  <h6>Ridma Weerawardhana</h6>
+                  <p>Vocalist</p>
+                </div>
+              </div>
+            </div>
+            <h5 class="mt-3">Ridma Weerawardhana</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="artist-card">
+            <div class="artist-image">
+              <img src="assets/artists/6.jpg" alt="Siyumini Opayangi" class="img-fluid rounded-circle">
+              <div class="artist-overlay">
+                <div class="artist-info">
+                  <h6>Siyumini Opayangi</h6>
+                  <p>Vocalist</p>
+                </div>
+              </div>
+            </div>
+            <h5 class="mt-3">Siyumini Opayangi</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="artist-card">
+            <div class="artist-image">
+              <img src="assets/artists/3.jpg" alt="Lakshitha Mihiran" class="img-fluid rounded-circle">
+              <div class="artist-overlay">
+                <div class="artist-info">
+                  <h6>Lakshitha Mihiran</h6>
+                  <p>Vocalist</p>
+                </div>
+              </div>
+            </div>
+            <h5 class="mt-3">Lakshitha Mihiran</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="artist-card">
+            <div class="artist-image">
+              <img src="assets/artists/5.jpg" alt="Rashmitha Abhisheka" class="img-fluid rounded-circle">
+              <div class="artist-overlay">
+                <div class="artist-info">
+                  <h6>Rashmitha Abhisheka</h6>
+                  <p>Vocalist</p>
+                </div>
+              </div>
+            </div>
+            <h5 class="mt-3">Rashmitha Abhisheka</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKETS -->
+  <section id="tickets" class="py-5">
+    <div class="container">
+      <h2 class="section-heading text-center">Tickets</h2>
+      <p class="text-center mb-4">Pick your vibe and secure your seat.</p>
+      <div class="row justify-content-center g-4">
+        <!-- Ticket Cards -->
+        <script>
+          const prices=[3000,3500,4000,5500,7500];
+          document.write(prices.map(p=>`<div class='col-6 col-sm-4 col-md-3'>\n  <a class='ticket-link' href='https://www.ticketsministry.com/concerts/aala-katha/6809e698cb16d' target='_blank'>\n    <div class='ticket-card'>\n      <span class='price'>LKR ${p}</span>\n      <span class='buy'>Buy&nbsp;Now</span>\n    </div>\n  </a>\n</div>`).join(''));
+        </script>
+      </div>
+      <p class="text-center mt-4">
+        <a class="btn btn-primary-custom btn-lg" target="_blank" href="https://www.ticketsministry.com/concerts/aala-katha/6809e698cb16d">Buy Tickets Online</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5" style="background:#FFF2D5;">
+    <div class="container">
+      <h2 class="section-heading text-center mb-4">Contact Us</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card border-0 shadow-sm" style="background: #FFFBE9;">
+            <div class="card-body p-4">
+
+              <p class="text-center mb-4">For inquiries, reservations, and more information:</p>
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="contact-card p-3 rounded-3" style="background: white; border-left: 4px solid var(--primary);">
+                    <div class="d-flex align-items-center">
+                      <div class="contact-icon me-3" style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user text-white"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-1">Tharuka</h6>
+                        <a href="tel:+94743911204" class="text-decoration-none" style="color: var(--secondary);">
+                          <i class="fas fa-phone-alt me-1"></i> 074 391 1204
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="contact-card p-3 rounded-3" style="background: white; border-left: 4px solid var(--primary);">
+                    <div class="d-flex align-items-center">
+                      <div class="contact-icon me-3" style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user text-white"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-1">Ruwan</h6>
+                        <a href="tel:+94722165143" class="text-decoration-none" style="color: var(--secondary);">
+                          <i class="fas fa-phone-alt me-1"></i> 072 216 5143
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="contact-card p-3 rounded-3" style="background: white; border-left: 4px solid var(--primary);">
+                    <div class="d-flex align-items-center">
+                      <div class="contact-icon me-3" style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user text-white"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-1">Lasitha</h6>
+                        <a href="tel:+94715803647" class="text-decoration-none" style="color: var(--secondary);">
+                          <i class="fas fa-phone-alt me-1"></i> 071 580 3647
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="contact-card p-3 rounded-3" style="background: white; border-left: 4px solid var(--primary);">
+                    <div class="d-flex align-items-center">
+                      <div class="contact-icon me-3" style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user text-white"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-1">Vidura</h6>
+                        <a href="tel:+94710494646" class="text-decoration-none" style="color: var(--secondary);">
+                          <i class="fas fa-phone-alt me-1"></i> 071 049 4646
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center mt-4">
+                <p class="mb-2">Follow us on social media</p>
+                <div class="social-links">
+                  <a href="https://web.facebook.com/aakakatha" target="_blank" class="mx-2" style="color: var(--secondary); font-size: 1.5rem;">
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                  <a href="http://instagram.com/aalakatha" target="_blank" class="mx-2" style="color: var(--secondary); font-size: 1.5rem;">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="https://www.youtube.com/@BackbeatSessions" target="_blank" class="mx-2" style="color: var(--secondary); font-size: 1.5rem;">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-0">© 2025 Chathra Events. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    /* COUNTDOWN TIMER */
+    const eventDate=new Date("2025-07-19T19:00:00+05:30").getTime();
+    const cdEl=document.getElementById("countdown");
+    function tick(){
+      const now=Date.now();
+      const diff=eventDate-now;
+      if(diff<=0){cdEl.textContent="Event Started!";return;}
+      const d=Math.floor(diff/(1000*60*60*24));
+      const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+      const m=Math.floor((diff%(1000*60*60))/(1000*60));
+      const s=Math.floor((diff%(1000*60))/1000);
+      cdEl.textContent=`${d}d ${h}h ${m}m ${s}s`;
+    }
+    tick();
+    setInterval(tick,1000);
+  </script>
+</body>
+</html>
