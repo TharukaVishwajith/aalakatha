@@ -102,6 +102,16 @@
       position: relative;
       z-index: 2;
     }
+    .hero .background-image {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.8;
+    }
     .hero h1,
     .hero .lead,
     .hero .sinhala-text {
@@ -111,10 +121,11 @@
     }
     .hero h1{
       font-family:'Kekobrush',sans-serif;
-      font-size:5rem;
+      font-size:7.5rem;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       letter-spacing: 2px;
+      line-height: 1.1;
     }
     .hero .lead {
       font-size: 1.5rem;
@@ -269,6 +280,7 @@
 
   <!-- HERO -->
   <header class="hero" id="home">
+    <img src="assets/artists/artists_cartoon.png" alt="Artists Cartoon" class="background-image">
     <div class="container">
       <h1 class="mb-3">wd, l;d</h1>
       <p class="lead mb-4"><span class="sinhala-text">l;djla ,shkakg wd,fhka</span><br>Experience a spell‑binding night of live music</p>
@@ -319,7 +331,6 @@
     <div class="container">
       <h2 class="section-heading text-center mb-4">
         <span class="artist-title">Artist Line‑Up</span>
-        <div class="title-decoration"></div>
       </h2>
       <div class="row text-center g-4">
         <div class="col-6 col-md-4 col-lg-2">

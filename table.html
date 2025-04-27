@@ -1,0 +1,164 @@
+<!-- Aala Katha – Event Overview (with page padding) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aala Katha Concert – Proposal Table</title>
+  <style>
+    :root {
+      --brand-dark: #dc5406; /* deepest orange */
+      --brand-mid:  #f37817; /* mid orange */
+      --brand-light:#fb9820; /* light orange */
+      --row-alt:    #fff9f1; /* subtle tint for zebra striping */
+      --text-dark:  #222222;
+      --text-light: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;              /* added page padding */
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: #ffffff;
+    }
+
+    .event-table {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;            /* centered within padded body */
+      border-collapse: collapse;
+      box-shadow: 0 2px 6px rgba(0,0,0,.08);
+      letter-spacing: .25px;
+    }
+
+    .event-table thead th {
+      background: var(--brand-dark);
+      color: var(--text-light);
+      padding: 12px 14px;
+      text-align: left;
+      font-size: 1.05rem;
+    }
+
+    .event-table tbody td {
+      border: 1px solid var(--brand-mid);
+      padding: 12px 14px;
+      font-size: 1rem;
+      color: var(--text-dark);
+      line-height: 1.45em;
+    }
+
+    /* Zebra striping */
+    .event-table tbody tr:nth-child(even) { background: var(--row-alt); }
+
+    /* List styling inside cells */
+    .event-table ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .event-table li { margin: 2px 0; }
+
+    /* Responsive: stack rows on small screens */
+    @media (max-width: 640px) {
+      .event-table thead { display: none; }
+      .event-table, .event-table tbody, .event-table tr, .event-table td {
+        display: block;
+        width: 100%;
+      }
+      .event-table tr { margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+      .event-table td {
+        border: none;
+        position: relative;
+        padding: 12px 14px 12px 50%;
+      }
+      .event-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 12px;
+        font-weight: 600;
+        color: var(--text-light);
+        background: var(--brand-mid);
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<table class="event-table">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Item">Live Concert</td>
+      <td data-label="Details"><strong>Aala Katha – “කතාවක් ලියන්නට ආලයෙන්…”</strong></td>
+    </tr>
+    <tr>
+      <td data-label="Item">Date / Time</td>
+      <td data-label="Details">19&nbsp;Jul&nbsp;2025 · 7&nbsp;PM</td>
+    </tr>
+    <tr>
+      <td data-label="Item">Venue</td>
+      <td data-label="Details">Musaeus College Auditorium, Colombo</td>
+    </tr>
+    <tr>
+      <td data-label="Item">Organiser</td>
+      <td data-label="Details">Chathra Events × Backbeat Sessions</td>
+    </tr>
+    <tr>
+      <td data-label="Item">Artists</td>
+      <td data-label="Details">
+        <ul>
+          <li>Gajindu Fonseka</li>
+          <li>Gangadara</li>
+          <li>Ridma Weerawardhana</li>
+          <li>Siyumini Opayangi</li>
+          <li>Lakshitha Mihiran</li>
+          <li>Rashmitha Abhisheka</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td data-label="Item">Music Director</td>
+      <td data-label="Details">Nipuna Jayakody</td>
+    </tr>
+    <tr>
+      <td data-label="Item">Compere</td>
+      <td data-label="Details">Chamod Nuwaragedara</td>
+    </tr>
+    <tr>
+      <td data-label="Item">Capacity</td>
+      <td data-label="Details">1400 seats (95 % projected sell-through)</td>
+    </tr>
+    <tr>
+      <td data-label="Item">Ticket Tiers</td>
+      <td data-label="Details">
+        <ul>
+          <li>LKR 3 000</li>
+          <li>LKR 3 500</li>
+          <li>LKR 4 000</li>
+          <li>LKR 5 500</li>
+          <li>LKR 7 500</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td data-label="Item">Digital Series</td>
+      <td data-label="Details">Road to Aala Katha – 10 YouTube episodes</td>
+    </tr>
+    <tr>
+      <td data-label="Item">Multi-Channel Reach</td>
+      <td data-label="Details">1M+ cumulative social-media followers across artists</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
