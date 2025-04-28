@@ -136,6 +136,15 @@
       display: block;
       margin-bottom: 0.5rem;
     }
+    /* Add responsive font size for smaller screens */
+    @media (max-width: 375px) {
+      .hero h1 {
+        font-size: 4.5rem;
+      }
+      .hero .lead {
+        font-size: 1.2rem;
+      }
+    }
     .hero .lead br:first-of-type + text {
       font-family: 'Kekobrush', sans-serif;
     }
