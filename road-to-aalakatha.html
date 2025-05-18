@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Road to AALA KATHA | Backbeat Sessions</title>
+  <meta name="description" content="Backbeat Sessions: ten episodic drops (every Tuesday & Friday) leading to the AALA KATHA concert." />
+  <link rel="canonical" href="https://aalakatha.lk/road-to-aalakatha" />
+
+  <!-- Social cards -->
+  <meta property="og:title" content="Road to AALA KATHA | Backbeat Sessions" />
+  <meta property="og:description" content="A vertical journey of live-performance episodes culminating in AALA KATHA – 19 Jul 2025." />
+  <meta property="og:image" content="https://aalakatha.lk/assets/share.jpeg" />
+  <meta property="og:url" content="https://aalakatha.lk/road-to-aalakatha" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts, Icons, CSS libs -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <style>
+    @font-face { font-family: "Kekobrush"; src: url("assets/kekoBrush.ttf") format("truetype"); }
+    :root {
+      --primary:#F4A529;--secondary:#C86414;--accent:#FFCF53;--light:#FFF7E6;--text-dark:#2B2B2B;
+    }
+    body{margin:0;font-family:'Poppins',sans-serif;background:var(--light);color:var(--text-dark);} html{scroll-behavior:smooth;}
+    .navbar{background:var(--primary)!important;} .navbar-brand{font-family:'Kekobrush',sans-serif;color:#fff!important;}
+    .nav-link{color:#fff!important;font-weight:600;}
+
+    .hero{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:linear-gradient(120deg,#C86414 0%,#F4A529 50%,#FFCF53 100%);position:relative;overflow:hidden;} .hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.18);} .hero h1{font-family:'Kekobrush',sans-serif;font-size:4rem;text-shadow:2px 2px 4px rgba(0,0,0,.3);} 
+
+    .section-heading{text-align:center;color:var(--secondary);font-weight:700;margin-bottom:2rem;}
+
+    /* Enhanced Vertical timeline */
+    .road-wrapper{position:relative;margin-left:30px;} 
+    .road-wrapper::before{
+      content:'';position:absolute;left:12px;top:0;width:4px;height:100%;
+      background:linear-gradient(180deg, var(--primary), var(--secondary));
+      border-radius:4px;
+    } 
+    .road-item{
+      position:relative;background:#fff;border-radius:10px;
+      padding:1.5rem;margin-bottom:2rem;
+      box-shadow:0 4px 15px rgba(0,0,0,.08);
+      transition:all 0.3s ease;
+      border-left:3px solid var(--primary);
+      overflow: visible;
+    } 
+    .road-item:hover {
+      transform: translateX(5px);
+      box-shadow:0 6px 20px rgba(0,0,0,.12);
+      border-left:3px solid var(--secondary);
+    }
+    .road-item::before{
+      content:'';position:absolute;left:-28px;top:18px;
+      width:18px;height:18px;border-radius:50%;
+      background:var(--primary);border:4px solid #fff;
+      box-shadow:0 0 0 2px var(--primary);
+      transition:all 0.3s ease;
+    } 
+    .road-item:hover::before {
+      background:var(--secondary);
+      transform: scale(1.2);
+    }
+    .road-item.final {
+      background: var(--light);
+      color: var(--text-dark);
+      text-align: center;
+      border-left: 5px solid var(--primary);
+      position: relative;
+      overflow: visible;
+      padding: 2.5rem 1.5rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      margin-top: 2rem;
+      transform: none;
+      border-image: none;
+    }
+    .road-item.final::before,
+    .road-item.final::after {
+      display: none;
+    }
+    .final-content-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .finale-header {
+      margin-bottom: 2.5rem;
+    }
+    .finale-eyebrow {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
+      display: block;
+      background-color: rgba(255, 207, 83, 0.2);
+      padding: 5px 15px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .finale-title {
+      font-family: 'Kekobrush', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    }
+    .finale-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      opacity: 1;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .finale-highlights {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .finale-highlight-badge {
+      background-color: #FFF0D4;
+      color: var(--secondary);
+      padding: 0.7rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1px solid var(--primary);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .finale-highlight-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .finale-highlight-badge i {
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    .finale-details-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+    @media (min-width: 768px) {
+      .finale-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem;
+      }
+    }
+    .finale-detail-item {
+      display: flex;
+      align-items: center;
+    }
+    .finale-detail-item .icon-container {
+      flex-shrink: 0;
+      width: 45px;
+      height: 45px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      color: var(--secondary);
+    }
+    .finale-detail-item .icon-container i {
+      font-size: 1.25rem;
+    }
+    .finale-detail-item .text-content .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--secondary);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.1rem;
+      font-weight: 600;
+    }
+    .finale-detail-item .text-content .value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.3px;
+    }
+    .finale-cta {
+      margin-top: 1rem;
+    }
+    .finale-cta .btn-book-tickets {
+      background: var(--secondary);
+      border: none;
+      color: #fff;
+      font-weight: 700;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(200, 100, 20, 0.3);
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      display: inline-block;
+    }
+    .finale-cta .btn-book-tickets:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(200, 100, 20, 0.4);
+    }
+    .finale-cta .cta-caption {
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      opacity: 0.7;
+      margin-top: 0.75rem;
+    }
+    .road-item h5 {
+      color: var(--secondary);
+      transition: all 0.3s ease;
+    }
+    .road-item:hover h5 {
+      color: var(--primary);
+    }
+    .episode-preview {
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .road-item:hover .episode-preview {
+      border-color: var(--primary);
+    }
+    .episode-date {
+      display: inline-block;
+      background: var(--light);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--secondary);
+    }
+    .episode-badge {
+      position: absolute;
+      top: -12px;
+      right: 15px;
+      background: var(--primary);
+      color: white;
+      font-size: 0.85rem;
+      padding: 6px 15px;
+      border-radius: 25px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transform: scale(1);
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      border: 2px solid rgba(255,255,255,0.4);
+      z-index: 5;
+    }
+    .road-item:hover .episode-badge {
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+    .episode-badge.mystery {
+      background: linear-gradient(135deg, #6A0DAD, #9932CC);
+      animation: pulse 2s infinite;
+      padding: 6px 18px;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(106, 13, 173, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(106, 13, 173, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(106, 13, 173, 0); }
+    }
+    .coming-soon-placeholder {
+      background: linear-gradient(45deg, #f5f5f5, #e9e9e9);
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .mystery-icon {
+      color: var(--primary);
+      transform: scale(1);
+      transition: all 0.3s ease;
+    }
+    .road-item:hover .mystery-icon {
+      transform: scale(1.2);
+      animation: hourglass 2s ease-in-out infinite;
+      color: var(--secondary);
+    }
+    @keyframes hourglass {
+      0% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(90deg) scale(1.2); }
+      50% { transform: rotate(180deg) scale(1); }
+      75% { transform: rotate(270deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    .mystery-container {
+      position: relative;
+      text-align: center;
+    }
+    .mystery-text {
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 2px;
+      margin-top: 10px;
+      position: relative;
+      display: inline-block;
+    }
+    .mystery-text::before,
+    .mystery-text::after {
+      content: '?';
+      color: var(--primary);
+      font-weight: bold;
+      margin: 0 10px;
+      opacity: 0.7;
+    }
+    .coming-soon-placeholder i {
+      color: var(--primary);
+      opacity: 0.8;
+      transition: all 0.3s ease;
+      animation: hourglass 2s ease-in-out infinite;
+    }
+    .road-item:hover .coming-soon-placeholder i {
+      opacity: 1;
+      transform: scale(1.1);
+      color: var(--secondary);
+    }
+
+    .btn-primary-custom{background:var(--secondary);border:none;color:#fff;font-weight:600;padding:.8rem 2rem;border-radius:50px;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 15px rgba(200,100,20,.3);} .btn-primary-custom:hover{background:#a44f10;}
+
+    /* Subscribe Button - YouTube style */
+    .btn-youtube {
+      background: #FF0000;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      padding: .8rem 2rem;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .btn-youtube:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+    .btn-youtube:hover {
+      background: #cc0000;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+    }
+    .btn-youtube:hover:before {
+      left: 100%;
+    }
+
+    /* Ticket Button - Special style */
+    .btn-book-tickets {
+      background: linear-gradient(45deg, var(--secondary), var(--primary));
+      border: none;
+      color: #fff;
+      font-weight: 700;
+      padding: 0.9rem 2.2rem;
+      border-radius: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(200, 100, 20, 0.3);
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      border: 2px solid transparent;
+    }
+    .btn-book-tickets:hover {
+      background: #fff;
+      color: var(--secondary);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(200, 100, 20, 0.5);
+      border: 2px solid var(--primary);
+    }
+    .btn-book-tickets i {
+      animation: ticket-bounce 1.5s infinite;
+    }
+    @keyframes ticket-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    footer{background:var(--secondary);color:#fff;padding:1.5rem 0;text-align:center;font-size:.9rem;}
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">wd, l;d</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#journey">Journey</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cta">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="container position-relative" style="z-index:2;">
+      <h2 class="fw-semibold text-uppercase mb-2" style="letter-spacing:2px;">Road to</h2>
+      <h1 class="mb-3" style="font-family: 'Kekobrush', sans-serif; font-size: 5rem;">wd, l;d</h1>
+      <p class="lead mb-4 fw-semibold">A 10‑Episode YouTube Series</p>
+      <a href="https://www.youtube.com/@BackbeatSessions" class="btn btn-youtube btn-lg" target="_blank"><i class="fab fa-youtube me-2"></i>Subscribe</a>
+    </div>
+  </header>
+
+  <!-- JOURNEY TIMELINE -->
+  <section class="py-5" style="background:#FFF2D5;" id="journey">
+    <div class="container">
+      <h2 class="section-heading" data-aos="fade-down">Journey to the Stage</h2>
+      <div class="road-wrapper" id="episode-timeline"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5" id="cta">
+    <div class="container text-center">
+      <h2 class="section-heading mb-3">Don't Miss an Episode!</h2>
+      <p class="lead mb-4">Subscribe to Backbeat Sessions and join the journey.</p>
+      <a href="https://www.youtube.com/@BackbeatSessions" target="_blank" class="btn btn-youtube btn-lg"><i class="fab fa-youtube me-2"></i>Subscribe Now</a>
+    </div>
+  </section>
+
+  <footer>© 2025 Chathra Events</footer>
+
+  <!-- JS libs -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      AOS.init({duration:800,once:true});
+
+      // Create schedule dates (Tue & Fri after first Sunday)
+      const scheduleDates=[
+        '18 May 2025','20 May 2025','23 May 2025','27 May 2025','30 May 2025',
+        '03 Jun 2025','06 Jun 2025','10 Jun 2025','13 Jun 2025','17 Jun 2025'
+      ];
+
+      const episodes=[
+        {title:'Numbata Dunnu Aale – Gajindu Fonseka',desc:'Official Live Version | Road to AALA KATHA',youtube:'1PsDJsy8e64', released:true, icon:'fa-music'},
+        {title:'Episode ?: The Sealed Melody',desc:'A hidden gem waiting to be revealed...',youtube:'', released:false, icon:'fa-hourglass-half'},
+        {title:'Episode ?: Forbidden Rhythms',desc:'Unlocking the sounds of the unknown...',youtube:'', released:false, icon:'fa-hourglass-half'},
+        {title:'Episode ?: The Veiled Harmony',desc:'Secrets behind the musical curtain...',youtube:'', released:false, icon:'fa-hourglass-half'},
+        {title:'Episode ?: Lost Frequencies',desc:'Discovering what was never meant to be found...',youtube:'', released:false, icon:'fa-hourglass-half'},
+        {title:'Episode ?: The Unseen Performer',desc:'Whose hands create these mysterious sounds?',youtube:'', released:false, icon:'fa-hourglass-half'},
+        {title:'Episode ?: Cryptic Notations',desc:'Decoding the musical enigma...',youtube:'', released:false, icon:'fa-hourglass-half'},
+        {title:'Episode ?: Shadow Melodies',desc:'Songs from the other side...',youtube:'', released:false, icon:'fa-hourglass-half'},
+        {title:'Episode ?: The Ancient Instrument',desc:'A sound that transcends time...',youtube:'', released:false, icon:'fa-hourglass-half'},
+        {title:'Episode ?: The Final Revelation',desc:'All mysteries lead to AALA KATHA...',youtube:'', released:false, icon:'fa-hourglass-half'}
+      ];
+
+      const container=document.getElementById('episode-timeline');
+      container.innerHTML='';
+
+      episodes.forEach((ep,idx)=>{
+        const isReleased = ep.released;
+        const card=document.createElement('div');
+        card.className='road-item';
+        card.setAttribute('data-aos','fade-up');
+        card.setAttribute('data-aos-delay', (idx * 100).toString());
+        
+        const badgeHtml = isReleased ? 
+          '<span class="episode-badge"><i class="fas fa-check-circle me-1"></i>RELEASED</span>' : 
+          '<span class="episode-badge mystery"><i class="fas fa-question-circle me-1"></i>MYSTERY</span>';
+        
+        card.innerHTML=`
+          ${badgeHtml}
+          <h5 class="fw-bold mb-2">
+            ${isReleased ? '' : '<i class="fas ' + ep.icon + ' me-2 mystery-icon"></i>'}
+            ${ep.title}
+          </h5>
+          <span class="episode-date mb-2">${scheduleDates[idx]}</span>
+          <p class="small mb-2">${ep.desc}</p>
+          <div class="episode-preview">
+            ${ep.youtube
+              ? `<div class="ratio ratio-16x9">
+                  <iframe src="https://www.youtube.com/embed/${ep.youtube}" 
+                    title="Episode ${idx+1}" allowfullscreen></iframe>
+                 </div>`
+              : `<div class="ratio ratio-16x9">
+                  <div class="coming-soon-placeholder">
+                    <div class="mystery-container">
+                      <i class="fas ${ep.icon} mb-2" style="font-size: 2rem; display: block;"></i>
+                      <div class="mystery-text">Coming Soon</div>
+                    </div>
+                  </div>
+                 </div>`
+            }
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      const finale=document.createElement('div');
+      finale.className='road-item final';
+      finale.setAttribute('data-aos','fade-up');
+      finale.setAttribute('data-aos-delay', '1000');
+      finale.innerHTML=`
+        <div class="final-content-wrapper">
+          <div class="finale-header">
+            <span class="finale-eyebrow">Grand Finale</span>
+            <h3 class="finale-title">wd, l;d</h3>
+            <p class="finale-subtitle">The ultimate musical experience awaits. Join us for an unforgettable night!</p>
+          </div>
+
+          <div class="finale-highlights">
+            <span class="finale-highlight-badge">
+              <i class="fas fa-music"></i>Live Concert
+            </span>
+            <span class="finale-highlight-badge">
+              <i class="fas fa-users"></i>Limited Seating
+            </span>
+            <span class="finale-highlight-badge">
+              <i class="fas fa-microphone-alt"></i>Full Band Performance
+            </span>
+          </div>
+
+          <div class="finale-details-grid">
+            <div class="finale-detail-item">
+              <div class="icon-container">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="text-content">
+                <div class="label">Venue</div>
+                <div class="value">Musaeus College Auditorium</div>
+              </div>
+            </div>
+            <div class="finale-detail-item">
+              <div class="icon-container">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+              <div class="text-content">
+                <div class="label">Date & Time</div>
+                <div class="value">19 Jul 2025 | 7:00 PM</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="finale-cta text-center">
+            <a href="https://www.ticketsministry.com/concerts/aala-katha/6809e698cb16d" class="btn btn-lg btn-book-tickets" target="_blank">
+              <i class="fas fa-ticket-alt me-2"></i>Book Your Tickets
+            </a>
+            <p class="cta-caption">Tickets are limited. Secure yours today!</p>
+          </div>
+        </div>
+      `;
+      
+      // Add the finale to the container
+      container.appendChild(finale);
+    });
+  </script>
+</body>
+</html>
