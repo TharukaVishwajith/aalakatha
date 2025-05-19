@@ -271,6 +271,23 @@
       border: 2px solid rgba(255,255,255,0.4);
       z-index: 5;
     }
+    /* Responsive styling for episode badges on mobile */
+    @media (max-width: 767px) {
+      .episode-badge {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        letter-spacing: 0.5px;
+        top: -10px;
+        right: 10px;
+        border-width: 1px;
+      }
+      .episode-badge.mystery {
+        padding: 4px 12px;
+      }
+      .episode-badge i {
+        font-size: 0.8rem;
+      }
+    }
     .road-item:hover .episode-badge {
       transform: scale(1.1) translateY(-2px);
       box-shadow: 0 6px 12px rgba(0,0,0,0.3);
@@ -435,9 +452,11 @@
   <!-- HERO -->
   <header class="hero" id="hero">
     <div class="container position-relative" style="z-index:2;">
+      <p class="mb-1 text-uppercase" style="letter-spacing:2px; font-weight:600;">Team Backbeat proudly presents</p>
       <h2 class="fw-semibold text-uppercase mb-2" style="letter-spacing:2px;">Road to</h2>
       <h1 class="mb-3" style="font-family: 'Kekobrush', sans-serif; font-size: 5rem;">wd, l;d</h1>
-      <p class="lead mb-4 fw-semibold">A 10‑Episode YouTube Series</p>
+      <p class="lead mb-2 fw-semibold">Third Season from <span style="font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 700; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); background: linear-gradient(120deg, var(--secondary), var(--primary)); padding: 3px 15px; border-radius: 8px; display: inline-block; letter-spacing: 0.5px;">Backbeat Sessions</span></p>
+      <p class="lead mb-4">A 10‑Episode YouTube Series</p>
       <a href="https://www.youtube.com/@BackbeatSessions" class="btn btn-youtube btn-lg" target="_blank"><i class="fab fa-youtube me-2"></i>Subscribe</a>
     </div>
   </header>
