@@ -163,7 +163,62 @@
     /* ---------- NAVBAR ---------- */
     .navbar { background: var(--primary) !important; }
     .navbar-brand { font-family: 'Kekobrush', sans-serif; color:#fff !important; font-weight:600; }
-    .nav-link { font-family: 'Poppins', sans-serif; color:#fff !important; font-weight:600; }
+    .nav-link { 
+      font-family: 'Poppins', sans-serif; 
+      color:#fff !important; 
+      font-weight:600; 
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem !important;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .nav-link:active {
+      transform: translateY(0);
+    }
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    .nav-link:hover::before {
+      transform: translateX(100%);
+    }
+    
+    /* Add separator between nav items */
+    .navbar-nav .nav-item:not(:last-child) .nav-link::after {
+      content: '';
+      position: absolute;
+      right: -0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Special styling for "Road to Aala katha" button */
+    .navbar-nav .nav-item:nth-child(4) .nav-link {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .navbar-nav .nav-item:nth-child(4) .nav-link:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
 
     /* ---------- HERO ---------- */
     .hero {
@@ -402,6 +457,31 @@
     .artist-card:hover h5 {
       color: var(--secondary);
     }
+
+    /* ---------- ROAD TO AALA KATHA BUTTON ANIMATIONS ---------- */
+    .road-to-aala-btn:hover {
+      background: #fafafa !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(244, 165, 41, 0.4) !important;
+    }
+    .road-to-aala-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 10px rgba(244, 165, 41, 0.3) !important;
+    }
+    .road-to-aala-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(244, 165, 41, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    .road-to-aala-btn:hover::after {
+      transform: translateX(100%);
+    }
   </style>
 </head>
 <body>
@@ -431,11 +511,11 @@
       <h1 class="mb-3">wd, l;d</h1>
       <p class="lead mb-4"><span class="sinhala-text">l;djla ,shkakg wd,fhka</span><br>Experience a spell‑binding night of live music</p>
       <div id="countdown" class="countdown mb-4"></div>
-      <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-        <a href="https://www.ticketsministry.com/concerts/aala-katha/6809e698cb16d" target="_blank" class="btn btn-primary-custom btn-lg" aria-label="Get your tickets for Aala Katha concert">
+      <div class="d-flex flex-column justify-content-center gap-3 align-items-center">
+        <a href="https://www.ticketsministry.com/concerts/aala-katha/6809e698cb16d" target="_blank" class="btn btn-primary-custom" style="min-width: 200px; background: #F4A529; box-shadow: 0 4px 15px rgba(244, 165, 41, 0.3);" aria-label="Get your tickets for Aala Katha concert">
           <i class="fas fa-ticket-alt me-2"></i>Get Your Tickets
         </a>
-        <a href="/road-to-aalakatha.html" class="btn btn-primary-custom btn-lg" style="background: #8B4513; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);" aria-label="Explore the Road to Aalakatha">
+        <a href="/road-to-aalakatha.html" class="btn road-to-aala-btn" style="background: white; color: #F4A529; font-weight: 700; padding: 1rem 2.5rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(244, 165, 41, 0.2); text-decoration: none; min-width: 200px; text-align: center; border: 2px solid #F4A529; position: relative; overflow: hidden;" aria-label="Explore the Road to Aalakatha">
           <i class="fas fa-road me-2"></i>Road to Aala Katha
         </a>
       </div>
