@@ -85,16 +85,84 @@
       background: rgba(255, 255, 255, 0.3);
     }
 
+    /* Special styling for tickets link */
+    .nav-link.tickets-highlight {
+      background: linear-gradient(45deg, var(--secondary), var(--primary)) !important;
+      color: #fff !important;
+      font-weight: 700 !important;
+      border-radius: 25px !important;
+      padding: 0.5rem 1rem !important;
+      box-shadow: 0 3px 12px rgba(200, 100, 20, 0.4);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      animation: tickets-glow 2s ease-in-out infinite alternate;
+      margin-left: 0.5rem !important;
+    }
+    
+    .nav-link.tickets-highlight:hover {
+      background: #fff !important;
+      color: var(--secondary) !important;
+      transform: scale(1.1) translateY(-2px) !important;
+      box-shadow: 0 5px 20px rgba(200, 100, 20, 0.6) !important;
+      border: 2px solid var(--primary);
+    }
+    
+    .nav-link.tickets-highlight::after {
+      display: none !important;
+    }
+    
+    @keyframes tickets-glow {
+      0% {
+        box-shadow: 0 3px 12px rgba(200, 100, 20, 0.4);
+      }
+      100% {
+        box-shadow: 0 3px 15px rgba(200, 100, 20, 0.6), 0 0 20px rgba(255, 207, 83, 0.3);
+      }
+    }
+
     .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(43,43,43,0.7) 50%, rgba(0,0,0,0.6) 100%), url("assets/team_bb.webp");background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;overflow:hidden;} 
     .hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");} 
     .hero h1{font-family:'Kekobrush',sans-serif;font-size:6rem;text-shadow:2px 2px 4px rgba(0,0,0,.3);margin-bottom:1.5rem;animation:fadeInUp 1s ease-out;} 
     .hero h2{font-size:2rem;font-weight:700;letter-spacing:4px;margin-bottom:1rem;animation:fadeInUp 1s ease-out 0.2s;opacity:0;animation-fill-mode:forwards;}
+    .hero .road-to-text {
+      font-family: 'Arial Black', 'Helvetica', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: 6px;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease-out 0.2s;
+      opacity: 0;
+      animation-fill-mode: forwards;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      .hero .road-to-text {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+    }
     .hero p{font-size:1.2rem;margin-bottom:2rem;animation:fadeInUp 1s ease-out 0.4s;opacity:0;animation-fill-mode:forwards;}
     .hero .btn-youtube{animation:fadeInUp 1s ease-out 0.6s;opacity:0;animation-fill-mode:forwards;transform:scale(1.1);}
     @keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
     .hero .season-badge{display:inline-block;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);padding:0.5rem 1.5rem;border-radius:50px;border:1px solid rgba(255,255,255,0.2);margin-bottom:1rem;animation:fadeInUp 1s ease-out 0.3s;opacity:0;animation-fill-mode:forwards;}
     .hero .season-badge span{font-weight:700;color:#fff;text-shadow:1px 1px 2px rgba(0,0,0,0.2);}
     .hero .main-entity{font-size:2.5rem;font-weight:700;color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,0.3);margin-bottom:2rem;animation:fadeInUp 1s ease-out 0.2s;opacity:0;animation-fill-mode:forwards;letter-spacing:2px;}
+
+    .backbeat-logo {
+      max-height: 120px;
+      width: auto;
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+      transition: all 0.3s ease;
+    }
+    .backbeat-logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.4));
+    }
+    @media (max-width: 768px) {
+      .backbeat-logo {
+        max-height: 80px;
+      }
+    }
 
     .section-heading{text-align:center;color:var(--secondary);font-weight:700;margin-bottom:2rem;}
 
@@ -507,8 +575,10 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#journey">Journey</a></li>
           <li class="nav-item"><a class="nav-link" href="#cta">Subscribe</a></li>
+          <li class="nav-item"><a class="nav-link tickets-highlight" href="https://www.ticketsministry.com/concerts/aala-katha/6809e698cb16d" target="_blank">Tickets</a></li>
         </ul>
       </div>
     </div>
@@ -517,11 +587,13 @@
   <!-- HERO -->
   <header class="hero" id="hero">
     <div class="container position-relative" style="z-index:2;">
-      <div class="main-entity">Backbeat Sessions</div>
+      <div class="main-entity">
+        <img src="assets/bbsname1.webp" alt="Backbeat Sessions" class="backbeat-logo">
+      </div>
       <div class="season-badge">
         <span>Season 3</span>
       </div>
-      <h2 class="fw-semibold text-uppercase">Road to</h2>
+      <h2 class="road-to-text text-uppercase">Road to</h2>
       <h1 class="mb-4">wd, l;d</h1>
       <p class="lead mb-4 fw-semibold">A 10‑Episode YouTube Series</p>
       <a href="https://www.youtube.com/@BackbeatSessions" class="btn btn-youtube btn-lg" target="_blank">
